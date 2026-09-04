@@ -1,0 +1,11 @@
+rules:
+  - type: exact_reference
+    weight: 100
+
+  - type: amount
+    tolerance: "0.01"
+    weight: 50
+
+  - type: timestamp
+    tolerance_seconds: 300
+    weight: 20

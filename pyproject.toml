@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "payment-reconciliation"
+version = "0.1.0"
+description = "Deterministic reconciliation of internal transactions against bank and PSP statements"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "PyYAML==6.0.3",
+  "SQLAlchemy==2.0.52",
+  "psycopg[binary]==3.3.5",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy==2.3.1",
+  "pytest==9.1.1",
+  "ruff==0.16.6",
+  "types-PyYAML==6.0.12.20260815",
+]
+
+[project.scripts]
+reconcile = "payment_reconciliation.cli:main"
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+markers = ["postgres: requires TEST_DATABASE_URL"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["payment_reconciliation"]
