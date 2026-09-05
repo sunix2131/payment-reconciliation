@@ -1,4 +1,4 @@
-# payment-reconciliation
+# PayMatch
 
 A deterministic reconciliation pipeline for comparing internal transaction records with bank or payment-provider statements.
 

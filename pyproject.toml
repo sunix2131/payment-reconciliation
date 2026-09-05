@@ -3,7 +3,7 @@ requires = ["setuptools>=80"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "payment-reconciliation"
+name = "paymatch"
 version = "0.1.0"
 description = "Deterministic reconciliation of internal transactions against bank and PSP statements"
 readme = "README.md"
